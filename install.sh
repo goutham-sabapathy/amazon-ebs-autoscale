@@ -59,7 +59,7 @@ Options
     --volume-iops       VOLUMEIOPS
                         Volume IOPS for gp3, io1, io2 (default: 3000)
 
-    --volume-throughput VOLUMETHOUGHPUT
+    --volume-throughput VOLUMETHROUGHPUT
                         Volume throughput for gp3 (default: 125)
 
     --not-encrypted     Flag to make the volume un-encyrpted. Default is to create
@@ -98,7 +98,7 @@ MOUNTPOINT=/scratch
 SIZE=200
 VOLUMETYPE=gp3
 VOLUMEIOPS=3000
-VOLUMETHOUGHPUT=125
+VOLUMETHROUGHPUT=125
 MIN_EBS_VOLUME_SIZE=150
 MAX_EBS_VOLUME_SIZE=1500
 MAX_LOGICAL_VOLUME_SIZE=8000
@@ -131,7 +131,7 @@ while (( "$#" )); do
             shift 2
             ;;
         --volume-throughput)
-            VOLUMETHOUGHPUT=$2
+            VOLUMETHROUGHPUT=$2
             shift 2
             ;;
         --not-encrypted)
@@ -228,7 +228,7 @@ cat ${BASEDIR}/config/ebs-autoscale.json | \
   sed -e "s#%%MOUNTPOINT%%#${MOUNTPOINT}#" | \
   sed -e "s#%%VOLUMETYPE%%#${VOLUMETYPE}#" | \
   sed -e "s#%%VOLUMEIOPS%%#${VOLUMEIOPS}#" | \
-  sed -e "s#%%VOLUMETHOUGHPUT%%#${VOLUMETHOUGHPUT}#" | \
+  sed -e "s#%%VOLUMETHROUGHPUT%%#${VOLUMETHROUGHPUT}#" | \
   sed -e "s#%%ENCRYPTED%%#${ENCRYPTED}#" | \
   sed -e "s#%%FILESYSTEM%%#${FILE_SYSTEM}#" | \
   sed -e "s#%%MINEBSVOLUMESIZE%%#${MIN_EBS_VOLUME_SIZE}#" | \
